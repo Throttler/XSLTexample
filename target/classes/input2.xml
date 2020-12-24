@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sawmill>
+    <info>
+        <title>
+            Wood Company Organisation
+        </title>
+        <contacts>
+            <address>
+                Bonhanlad Street, area 59
+            </address>
+            <phone>
+                +70010023456
+            </phone>
+            <fax>
+                +78005553535
+            </fax>
+        </contacts>
+    </info>
+
+    <orders>
+        <order>
+            <project status="complited">
+                <name>
+                    Armchair
+                </name>
+                <description>
+                    Armchair for business company
+                </description>
+            </project>
+            <coast>
+                53200
+            </coast>
+        </order>
+        <order>
+            <project status="complited">
+                <name>
+                    Kitchen tools
+                </name>
+                <description>
+                    Some staff for kitchen. Using rare trees wood
+                </description>
+            </project>
+            <coast>
+                499000
+            </coast>
+        </order>
+        <order>
+            <project status="active">
+                <name>
+                    Sofa
+                </name>
+                <description>
+                    Designers solution of unusual sofa
+                </description>
+                <progress>
+                    90
+                </progress>
+            </project>
+            <coast>
+                150000
+            </coast>
+        </order>
+        <order>
+            <project status="active">
+                <name>
+                    Armchair
+                </name>
+                <description>
+                    Armchair for business company
+                </description>
+                <progress>
+                    75
+                </progress>
+            </project>
+            <coast>
+                44000
+            </coast>
+        </order>
+        <order>
+            <project status="declined">
+                <name>
+                    Boards
+                </name>
+                <description>
+                    Planed board 20x96x2000 mm Amount: 25
+                </description>
+            </project>
+            <reason>
+                No payment
+            </reason>
+            <coast>
+                77020
+            </coast>
+        </order>
+    </orders>
+
+    <workers>
+        <worker id="91234">
+            <firstName>
+                Andrey
+            </firstName>
+            <lastName>
+                Gavrilov
+            </lastName>
+            <post>
+                junior
+            </post>
+        </worker>
+        <worker id="34563">
+            <firstName>
+                Valerii
+            </firstName>
+            <lastName>
+                Zhmishenko
+            </lastName>
+            <post>
+                middle
+            </post>
+        </worker>
+        <worker id="78456">
+            <firstName>
+                Alexei
+            </firstName>
+            <lastName>
+                Samoilov
+            </lastName>
+            <post>
+                middle
+            </post>
+        </worker>
+        <worker id="16345">
+            <firstName>
+                Anatoliy
+            </firstName>
+            <lastName>
+                Vecherov
+            </lastName>
+            <post>
+                foreman
+            </post>
+        </worker>
+
+    </workers>
+    <headmaster>
+        <firstName>
+            Mikhail
+        </firstName>
+        <lastName>
+            Novichok
+        </lastName>
+    </headmaster>
+
+</sawmill>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <course newTitle="Software Engeneering">
+        <teacher>Hector K.R.</teacher>
+    </course>
+    <course newTitle="Hardware Engeneering">
+        <teacher>Vector E.A.</teacher>
+    </course>
+    <course newTitle="English courses for beginners">
+        <teacher>Vector E.A.</teacher>
+    </course>
+</students>
