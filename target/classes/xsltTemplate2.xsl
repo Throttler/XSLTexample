@@ -69,37 +69,94 @@
             <xsl:for-each select="order">
                 <xsl:sort select="project/@status"/>
                 <li>
-                    <h1>
-                        <xsl:value-of select="project/name"/>
-                        Status:
-                        <xsl:value-of select="project/@status"/>
-                        <progress value="10" max="100"></progress>
-                    </h1>
+                    <div class="order-item">
+
+                        <div class="order-item-row">
+                                <xsl:value-of select="project/name"/>
+                        </div>
+
+
+                        <xsl:choose>
+                            <xsl:when test = "project/@status = 'active'">
+                                <div class="order-item-row">
+                                    Status:
+                                    <xsl:value-of select="project/@status"/>
+                                    <xsl:variable name="percents" select="number(progress)"/>
+
+                                    <div class="progress-bar">
+                                        <progress value="{$percents}" max="100"></progress>
+                                    </div>
+
+                                    <xsl:value-of select="$percents"/>
+                                    %
+                                </div>
+                                <div class="order-item-row">
+                                    Description:
+                                    <xsl:value-of select="project/description"/>
+                                </div>
+                                <div class="order-item-row">
+                                    Expected profit: <xsl:value-of select="coast"/>
+                                </div>
+                            </xsl:when>
+
+                            <xsl:when test = "project/@status = 'complited'">
+                                <div class="order-item-row">
+                                    Status:
+                                    <xsl:value-of select="project/@status"/>
+                                </div>
+                                <div class="order-item-row">
+                                    Description:
+                                    <xsl:value-of select="project/description"/>
+                                </div>
+                                <div class="order-item-row">
+                                    Profit: <xsl:value-of select="coast"/>
+                                </div>
+                            </xsl:when>
+
+                            <xsl:when test = "project/@status = 'declined'">
+                                <div class="order-item-row">
+                                    Status:
+                                    <xsl:value-of select="project/@status"/>
+                                </div>
+                                <div class="order-item-row">
+                                    Reason: <xsl:value-of select="reason"/>
+                                </div>
+                            </xsl:when>
+
+                            <xsl:otherwise>
+                                <div class="order-item-row">
+                                    Project without useful information
+                                </div>
+                            </xsl:otherwise>
+
+                        </xsl:choose>
+
+
+                    </div>
+
                 </li>
             </xsl:for-each>
         </xsl:copy>
     </xsl:template>
 
     <xsl:template match="sawmill/info/contacts">
-        
         <span class="info-item"><h3>How to contact with us:</h3></span>
-
         <span class="info-item">
             <h3>
                 Address:
-                <xsl:value-of select="address"/>
+                <xsl:value-of select="address"/>;
             </h3>
         </span>
         <span class="info-item">
             <h3>
                 Phone number:
-                <xsl:value-of select="phone"/>
+                <xsl:value-of select="phone"/>;
             </h3>
         </span>
         <span class="info-item">
             <h3>
                 Fax:
-                <xsl:value-of select="fax"/>
+                <xsl:value-of select="fax"/>.
             </h3>
         </span>
 

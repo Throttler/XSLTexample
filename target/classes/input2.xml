@@ -52,10 +52,10 @@
                 <description>
                     Designers solution of unusual sofa
                 </description>
-                <progress>
-                    90
-                </progress>
             </project>
+            <progress>
+                35
+            </progress>
             <coast>
                 150000
             </coast>
@@ -68,10 +68,10 @@
                 <description>
                     Armchair for business company
                 </description>
-                <progress>
-                    75
-                </progress>
             </project>
+            <progress>
+                75
+            </progress>
             <coast>
                 44000
             </coast>
@@ -91,6 +91,13 @@
             <coast>
                 77020
             </coast>
+        </order>
+        <order>
+            <project status="undefined">
+                <name>
+                    Some Undefined Project
+                </name>
+            </project>
         </order>
     </orders>
 
