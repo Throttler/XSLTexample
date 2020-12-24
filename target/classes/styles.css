@@ -30,6 +30,9 @@ h1 {
 .main-theme{
     background-color: #4E994A;
 }
+.second-theme{
+    background-color: #5c635b;
+}
 
 .header {
     display: flex;
@@ -55,5 +58,12 @@ h1 {
 
 .footer {
     display: flex;
-    margin: 1em;
+    margin: 0.5em 0.5em 0;
+    width: 900px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+
+.info-item {
+    margin: 0.3em;
 }

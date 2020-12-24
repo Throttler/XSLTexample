@@ -15,6 +15,9 @@
                     <div class="body">
                         <xsl:apply-templates select="sawmill"/>
                     </div>
+                    <div class="footer second-theme">
+                        <xsl:apply-templates select="sawmill/info/contacts"/>
+                    </div>
                 </div>
             </body>
         </html>
@@ -30,19 +33,13 @@
         <div class="small-container main-theme">
             <h1>Orders:</h1>
             <ul>
-                <xsl:apply-templates select="orders/order"/>
+                <xsl:apply-templates select="orders"/>
             </ul>
         </div>
         <div class="small-container main-theme">
             <h1>Workers:</h1>
             <ul>
-                <xsl:apply-templates select="workers/worker"/>
-            </ul>
-        </div>
-        <div class="small-container main-theme">
-            <h1>How to contact with us:</h1>
-            <ul>
-                <xsl:apply-templates select="info/contacts"/>
+                <xsl:apply-templates select="workers"/>
             </ul>
         </div>
     </xsl:template>
@@ -52,35 +49,60 @@
         <xsl:value-of select="lastName"/>
     </xsl:template>
 
-    <xsl:template match="workers/worker">
-        <xsl:for-each select=".">
-            <li>
-                <h1>
-                    <xsl:value-of select="lastName"/>
-                    <xsl:value-of select="firstName"/> ->
-                    <xsl:value-of select="post"/>
-                </h1>
-            </li>
-
-        </xsl:for-each>
+    <xsl:template match="workers">
+        <xsl:copy>
+            <xsl:for-each select="worker">
+                <xsl:sort select="lastName"/>
+                <li>
+                    <h1>
+                        <xsl:value-of select="lastName"/>
+                        <xsl:value-of select="firstName"/> ->
+                        <xsl:value-of select="post"/>
+                    </h1>
+                </li>
+            </xsl:for-each>
+        </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="orders/order">
-        <xsl:for-each select="project">
-            <li>
-                <h1>
-                    <xsl:value-of select="name"/>
-                    Status:
-                    <xsl:value-of select="@status"/>
-                </h1>
-            </li>
-        </xsl:for-each>
+    <xsl:template match="orders">
+        <xsl:copy>
+            <xsl:for-each select="order">
+                <xsl:sort select="project/@status"/>
+                <li>
+                    <h1>
+                        <xsl:value-of select="project/name"/>
+                        Status:
+                        <xsl:value-of select="project/@status"/>
+                        <progress value="10" max="100"></progress>
+                    </h1>
+                </li>
+            </xsl:for-each>
+        </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="info/contacts">
-        <xsl:value-of select="address"/>
-        <xsl:value-of select="phone"/>
-        <xsl:value-of select="fax"/>
+    <xsl:template match="sawmill/info/contacts">
+
+        <span class="info-item"><h3>How to contact with us:</h3></span>
+
+        <span class="info-item">
+            <h3>
+                Address:
+                <xsl:value-of select="address"/>
+            </h3>
+        </span>
+        <span class="info-item">
+            <h3>
+                Phone number:
+                <xsl:value-of select="phone"/>
+            </h3>
+        </span>
+        <span class="info-item">
+            <h3>
+                Fax:
+                <xsl:value-of select="fax"/>
+            </h3>
+        </span>
+
     </xsl:template>
 
 </xsl:stylesheet>
