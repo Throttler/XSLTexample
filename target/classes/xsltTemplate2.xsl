@@ -37,10 +37,8 @@
             </ul>
         </div>
         <div class="small-container main-theme">
-            <h1>Workers:</h1>
-            <ul>
-                <xsl:apply-templates select="workers"/>
-            </ul>
+            <h1>Employee table:</h1>
+            <xsl:apply-templates select="workers"/>
         </div>
     </xsl:template>
 
@@ -50,18 +48,34 @@
     </xsl:template>
 
     <xsl:template match="workers">
-        <xsl:copy>
-            <xsl:for-each select="worker">
-                <xsl:sort select="lastName"/>
-                <li>
-                    <h1>
-                        <xsl:value-of select="lastName"/>
-                        <xsl:value-of select="firstName"/> ->
-                        <xsl:value-of select="post"/>
-                    </h1>
-                </li>
-            </xsl:for-each>
-        </xsl:copy>
+        <table border="1">
+            <tr bgcolor="#5c635b">
+                <th>ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Worker position</th>
+            </tr>
+            <xsl:copy>
+                <xsl:for-each select="worker">
+                    <xsl:sort select="lastName"/>
+                    <tr>
+                        <td><xsl:value-of select="@id"/></td>
+                        <td><xsl:value-of select="lastName"/></td>
+                        <td><xsl:value-of select="firstName"/></td>
+                        <td>
+                            <xsl:value-of select="post"/>
+                            <xsl:if test = "post != 'foreman'">
+                                worker
+                            </xsl:if>
+                            <xsl:if test = "post = 'foreman'">
+                                of team
+                            </xsl:if>
+                        </td>
+
+                    </tr>
+                </xsl:for-each>
+            </xsl:copy>
+        </table>
     </xsl:template>
 
     <xsl:template match="orders">
@@ -72,12 +86,12 @@
                     <div class="order-item">
 
                         <div class="order-item-row">
-                                <xsl:value-of select="project/name"/>
+                            <xsl:value-of select="project/name"/>
                         </div>
 
 
                         <xsl:choose>
-                            <xsl:when test = "project/@status = 'active'">
+                            <xsl:when test="project/@status = 'active'">
                                 <div class="order-item-row">
                                     Status:
                                     <xsl:value-of select="project/@status"/>
@@ -86,7 +100,6 @@
                                     <div class="progress-bar">
                                         <progress value="{$percents}" max="100"></progress>
                                     </div>
-
                                     <xsl:value-of select="$percents"/>
                                     %
                                 </div>
@@ -95,11 +108,12 @@
                                     <xsl:value-of select="project/description"/>
                                 </div>
                                 <div class="order-item-row">
-                                    Expected profit: <xsl:value-of select="coast"/>
+                                    Expected profit:
+                                    <xsl:value-of select="coast"/>
                                 </div>
                             </xsl:when>
 
-                            <xsl:when test = "project/@status = 'complited'">
+                            <xsl:when test="project/@status = 'complited'">
                                 <div class="order-item-row">
                                     Status:
                                     <xsl:value-of select="project/@status"/>
@@ -109,17 +123,19 @@
                                     <xsl:value-of select="project/description"/>
                                 </div>
                                 <div class="order-item-row">
-                                    Profit: <xsl:value-of select="coast"/>
+                                    Profit:
+                                    <xsl:value-of select="coast"/>
                                 </div>
                             </xsl:when>
 
-                            <xsl:when test = "project/@status = 'declined'">
+                            <xsl:when test="project/@status = 'declined'">
                                 <div class="order-item-row">
                                     Status:
                                     <xsl:value-of select="project/@status"/>
                                 </div>
                                 <div class="order-item-row">
-                                    Reason: <xsl:value-of select="reason"/>
+                                    Reason:
+                                    <xsl:value-of select="reason"/>
                                 </div>
                             </xsl:when>
 
@@ -140,7 +156,9 @@
     </xsl:template>
 
     <xsl:template match="sawmill/info/contacts">
-        <span class="info-item"><h3>How to contact with us:</h3></span>
+        <span class="info-item">
+            <h3>How to contact with us:</h3>
+        </span>
         <span class="info-item">
             <h3>
                 Address:

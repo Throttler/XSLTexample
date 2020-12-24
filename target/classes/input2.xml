@@ -63,10 +63,10 @@
         <order>
             <project status="active">
                 <name>
-                    Armchair
+                    Ottoman
                 </name>
                 <description>
-                    Armchair for business company
+                    The softest ottomans in the world
                 </description>
             </project>
             <progress>
@@ -109,9 +109,7 @@
             <lastName>
                 Gavrilov
             </lastName>
-            <post>
-                junior
-            </post>
+            <post>junior</post>
         </worker>
         <worker id="34563">
             <firstName>
@@ -120,9 +118,7 @@
             <lastName>
                 Zhmishenko
             </lastName>
-            <post>
-                middle
-            </post>
+            <post>middle</post>
         </worker>
         <worker id="78456">
             <firstName>
@@ -131,9 +127,7 @@
             <lastName>
                 Samoilov
             </lastName>
-            <post>
-                middle
-            </post>
+            <post>middle</post>
         </worker>
         <worker id="16345">
             <firstName>
@@ -142,9 +136,7 @@
             <lastName>
                 Vecherov
             </lastName>
-            <post>
-                foreman
-            </post>
+            <post>foreman</post>
         </worker>
 
     </workers>
